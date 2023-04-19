@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./packages/web-interface/public/images/monster-logo.jpg" width="300">
+  <img src="./packages/web-interface/public/images/style-forge-logo.svg" width="300">
 </p>
 <p align="center">Build "design-first" design systems</p>
 
@@ -13,8 +13,8 @@ Convert Figma files into JSON objects, ready to integrate with style systems suc
 
 ## Table of Contents
 
-* [Install](#install)
-* [Usage](#usage)
+- [Install](#install)
+- [Usage](#usage)
 
 ### Install
 
