@@ -50,25 +50,15 @@ The basic `getThemeData` call takes two props:
 
 ## Logo Credits
 
-Creative Commons Attribution
+[“noun-ball-plan-hammer”](https://thenounproject.com/icon/ball-plan-hammer-3463748/) by [Pascal Hess](https://thenounproject.com/hess_pascal/) / CC by [3.0](https://creativecommons.org/licenses/by/3.0/us/legalcode)
 
-“noun-ball-plan-hammer” by Pascal Hess / CC by 3.0
+[“noun-metalworking”](https://thenounproject.com/icon/metalworking-1561383/) by [Symbolon](https://thenounproject.com/symbolon/) / CC by [3.0](https://creativecommons.org/licenses/by/3.0/us/legalcode )
 
-https://thenounproject.com/icon/ball-plan-hammer-3463748/
 
-https://thenounproject.com/hess_pascal/
 
-https://creativecommons.org/licenses/by/3.0/us/legalcode
 
----
 
-“noun-metalworking” by Symbolon / CC by 3.0
 
-https://thenounproject.com/icon/metalworking-1561383/
-
-https://thenounproject.com/symbolon/
-
-https://creativecommons.org/licenses/by/3.0/us/legalcode 
 
 
 
