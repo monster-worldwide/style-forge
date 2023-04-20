@@ -1,1 +1,1 @@
-{ "extends": "../../../babel.config.json" }
+{ "extends": "../../babel.config.json" }

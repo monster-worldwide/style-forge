@@ -19,6 +19,7 @@ export const getDistinctFills = (
     }
     const childAttrs = (child as Element).attributes;
     if (childAttrs && childAttrs.getNamedItem('fill')) {
+      console.log(childAttrs.getNamedItem('fill')?.value);
       fills.push(String(childAttrs.getNamedItem('fill')?.value));
     }
   }
