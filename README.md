@@ -46,3 +46,27 @@ The basic `getThemeData` call takes two props:
 
 - **figmaToken** - the [Figma Personal Access Token](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens) to use
 - **figmaFileKey** - the identifying key for the Figma file to parse. This can be found in the Figma file's URL.
+
+
+# Logo Credits
+
+Creative Commons Attribution
+
+“noun-ball-plan-hammer” by Pascal Hess / CC by 3.0
+
+https://thenounproject.com/icon/ball-plan-hammer-3463748/
+https://thenounproject.com/hess_pascal/
+https://creativecommons.org/licenses/by/3.0/us/legalcode
+
+---
+
+“noun-metalworking” by Symbolon / CC by 3.0
+
+https://thenounproject.com/icon/metalworking-1561383/
+https://thenounproject.com/symbolon/
+https://creativecommons.org/licenses/by/3.0/us/legalcode 
+
+
+
+
+
