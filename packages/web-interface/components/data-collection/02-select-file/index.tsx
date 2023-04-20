@@ -7,6 +7,15 @@ import { Form } from '../../Form';
 import { Error } from '../../Error';
 import { loadFileHeader } from '../../../utils/api/load-file-header';
 import { Icon } from '../../Icon';
+import { Loader } from '../../Loader';
+import styled from 'styled-components';
+
+const LoaderWrapper = styled.div`
+  display: grid;
+  place-content: center;
+  height: 100%;
+  margin-top: 10vh;
+`;
 
 export const SelectFileStep = () => {
   const [userData, dataActions] = useContext(UserDataContext);
@@ -33,47 +42,54 @@ export const SelectFileStep = () => {
 
   return (
     <PageWrapper>
-      <Button onClick={() => dataActions.clear()} variant='tertiary'>
-        <Icon name='back' />
-        Go Back
-      </Button>
-      <h2>One more thing!</h2>
-      <p>
-        Please enter the share URL of the Figma file that you want to run
-        through the forge.
-      </p>
-
-      <Form onSubmit={storeFileData}>
-        <FormControl
-          controlType='textarea'
-          id='file'
-          label='Figma File Share Url'
-          value={fileUrl}
-          disabled={isLoading}
-          onChange={(event) => {
-            setError('');
-            setFile(event.target.value);
-          }}
-        />
-        {error && <Error message={error} />}
-        <Button
-          type='submit'
-          variant='primary'
-          disabled={isLoading}
-          isLoading={isLoading}
-        >
-          {isLoading ? 'Loading...' : "I'm ready to Forge"}
-        </Button>
-        <Button
-          as='a'
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
-          variant='tertiary'
-        >
-          How do I find the share URL for my Figma file?
-        </Button>
-      </Form>
+      {isLoading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : (
+        <>
+          <Button onClick={() => dataActions.clear()} variant='tertiary'>
+            <Icon name='back' />
+            Go Back
+          </Button>
+          <h2>One more thing!</h2>
+          <p>
+            Please enter the share URL of the Figma file that you want to run
+            through the forge.
+          </p>
+          <Form onSubmit={storeFileData}>
+            <FormControl
+              controlType='textarea'
+              id='file'
+              label='Figma File Share Url'
+              value={fileUrl}
+              disabled={isLoading}
+              onChange={(event) => {
+                setError('');
+                setFile(event.target.value);
+              }}
+            />
+            {error && <Error message={error} />}
+            <Button
+              type='submit'
+              variant='primary'
+              disabled={isLoading}
+              isLoading={isLoading}
+            >
+              {isLoading ? 'Loading...' : "I'm ready to Forge"}
+            </Button>
+            <Button
+              as='a'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
+              variant='tertiary'
+            >
+              How do I find the share URL for my Figma file?
+            </Button>
+          </Form>
+        </>
+      )}
     </PageWrapper>
   );
 };

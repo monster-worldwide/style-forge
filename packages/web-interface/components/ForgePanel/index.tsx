@@ -5,6 +5,7 @@ import { SelectFileStep } from '../data-collection/02-select-file';
 import { Button } from '../Button';
 import styled from 'styled-components';
 import { PanelBody } from './PanelBody';
+import { Logo } from '../Logo';
 
 const StyledPanel = styled.div<{ hasUserProvidedFileData: Boolean }>`
   display: grid;
@@ -43,7 +44,7 @@ export const ForgePanel = () => {
       )}
     >
       <PanelBranding>
-        <h1>Style Forge</h1>
+        <Logo />
       </PanelBranding>
 
       {!userData.figmaApiToken && <GetStartedStep />}

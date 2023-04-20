@@ -7,6 +7,7 @@ import { loadFileHeader } from '../../../utils/api/load-file-header';
 import { loadRecentFileHeader } from '../../../utils/api/load-recent-file-header';
 import { Error } from '../../Error';
 import { Icon } from '../../Icon';
+import { Loader } from '../../Loader';
 
 const PanelBodyWrapper = styled.div`
   overflow: auto;
@@ -14,8 +15,17 @@ const PanelBodyWrapper = styled.div`
   border-top: 1px solid #6e46ae23;
 `;
 
-const PanelEditView = styled.div`
+const LoaderWrapper = styled.div`
+  display: grid;
+  place-content: center;
+  height: 100%;
+`;
+
+const PanelEditView = styled.div<{ isLoading: boolean }>`
   animation: var(--animation-drift-in--short);
+  opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
+  user-select: ${({ isLoading }) => isLoading && 'none'};
+  cursor: ${({ isLoading }) => isLoading && 'wait'};
 `;
 
 const Section = styled.div`
@@ -253,58 +263,74 @@ export const PanelBody = ({
     </>
   );
 
-  const fileSelectorView = () => (
-    <PanelEditView>
-      <Section>
-        <Button variant='secondary' onClick={() => setPanelView('default')}>
-          Back
-        </Button>
-      </Section>
-      <Section>
-        <h2>Current file</h2>
-        <div>{fileSelected?.name}</div>
-      </Section>
-      <Section>
-        <h2>Add a new Figma file</h2>
-        <FormControl
-          controlType='textarea'
-          id='file'
-          label='Share Url'
-          value={fileUrl}
-          onChange={(event) => setFile(event.target.value)}
-        />
-        {error && displayError()}
-        <Button
-          as='a'
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
-          variant='tertiary'
-        >
-          How do I find the share URL for my Figma file?
-        </Button>
-        <Button
-          onClick={storeFileData}
-          variant='primary'
-          disabled={isFileLoading}
-        >
-          {isFileLoading ? 'Loading...' : 'Add new file'}
-        </Button>
-      </Section>
-      <Section>
-        <h2>Recently viewed Figma files</h2>
-        {userData.recentFiles?.map((file) => (
-          <Button
-            key={file.fileKey}
-            variant='secondary'
-            onClick={() => loadRecentFile(file.fileKey)}
-          >
-            {file.name}
-          </Button>
-        ))}
-      </Section>
-    </PanelEditView>
-  );
+  const fileSelectorView = () => {
+    if (isFileLoading) {
+      return (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      );
+    } else {
+      return (
+        <PanelEditView isLoading={isFileLoading}>
+          <Section>
+            <Button
+              variant='secondary'
+              onClick={() => setPanelView('default')}
+              disabled={isFileLoading}
+            >
+              Back
+            </Button>
+          </Section>
+          <Section>
+            <h2>Current file</h2>
+            <div>{fileSelected?.name}</div>
+          </Section>
+          <Section>
+            <h2>Add a new Figma file</h2>
+            <FormControl
+              controlType='textarea'
+              id='file'
+              label='Share Url'
+              value={fileUrl}
+              onChange={(event) => setFile(event.target.value)}
+              disabled={isFileLoading}
+            />
+            {error && displayError()}
+            <Button
+              as='a'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
+              variant='tertiary'
+            >
+              How do I find the share URL for my Figma file?
+            </Button>
+            <Button
+              onClick={storeFileData}
+              variant='primary'
+              disabled={isFileLoading}
+            >
+              {isFileLoading ? 'Loading...' : 'Add new file'}
+            </Button>
+          </Section>
+          <Section>
+            <h2>Recently viewed Figma files</h2>
+            {userData.recentFiles?.map((file) => (
+              <Button
+                key={file.fileKey}
+                variant='secondary'
+                onClick={() => loadRecentFile(file.fileKey)}
+                disabled={isFileLoading}
+              >
+                {file.name}
+              </Button>
+            ))}
+          </Section>
+        </PanelEditView>
+      );
+    }
+  };
 
   const branchSelectorView = (branchType: 'selectedBranch' | 'diffBranch') => {
     const select = (branch: any) => {
@@ -319,7 +345,7 @@ export const PanelBody = ({
     };
 
     return (
-      <PanelEditView>
+      <PanelEditView isLoading={isFileLoading}>
         <Section>
           <Button variant='secondary' onClick={() => setPanelView('default')}>
             Back
