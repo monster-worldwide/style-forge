@@ -48,7 +48,7 @@ The basic `getThemeData` call takes two props:
 - **figmaFileKey** - the identifying key for the Figma file to parse. This can be found in the Figma file's URL.
 
 
-# Logo Credits
+## Logo Credits
 
 Creative Commons Attribution
 
