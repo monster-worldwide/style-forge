@@ -12,6 +12,32 @@ import {
   createVector,
 } from './node';
 
+export const mockIconFileResult = () => {
+  const result = {
+    name: 'Test',
+    version: '',
+    lastModified: '',
+    thumbnailUrl: '',
+    components: {},
+    schemaVersion: 0,
+    styles: {},
+    document: {
+      ...createNode('document', 'DOCUMENT'),
+      children: [
+        createFrame('Icon Page', [
+          createComponent('Icon Component', [createVector('icon', 'red')]),
+          createFrame('Icon Frame', [
+            createComponent('Next Icon Component', [
+              createVector('icon', 'blue'),
+            ]),
+          ]),
+        ]),
+      ],
+    },
+  } as GetFileResult;
+  return result;
+};
+
 export const mockFileResult = () => {
   const result = {
     name: 'Test',
@@ -63,6 +89,7 @@ const mockTokens = () => {
       ]),
     ]),
     createFrame('Token Page', [
+      createEllipse('$Section with no children'),
       createFrame('Tokens', [
         createRectangle('$token-rectangle-white', 'white', 'no-stroke'),
         createRectangle('$token-rectangle-blue', 'blue', 'no-stroke', 50, 25),
