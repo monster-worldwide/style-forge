@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env BUILD=server next dev",
     "start": "cross-env BUILD=server next start",
-    "build": "yarn clean & next build & next export",
+    "build": "yarn clean && next build && next export",
     "start-git": "serve -s out",
     "lint": "next lint",
     "prettier": "prettier --write \"{components,pages}/**/*.{ts,tsx}\"",
