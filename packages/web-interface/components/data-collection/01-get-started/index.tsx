@@ -29,9 +29,10 @@ export const GetStartedStep = () => {
         <FormControl
           id='token'
           label='Personal Access Token'
-          helpText="We store this token in your browser and don't share it with anyone."
+          helpText='We send your token to Figma and store it locally in your browser.'
           value={token}
           onChange={(event) => setToken(event.target.value)}
+          autoComplete='off'
         />
         {error && <Error message={error} />}
 
