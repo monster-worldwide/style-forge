@@ -5,6 +5,7 @@ import { ForgeViewer } from '../ForgeViewer';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import 'modern-css-reset/dist/reset.min.css';
+import Head from 'next/head';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -71,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 `;
-const Container = styled.div`
+const Main = styled.main`
   height: 100vh;
   overflow: hidden;
   display: grid;
@@ -91,14 +92,58 @@ export const Layout = ({
 }: {
   environmentSettings: EnvironmentSettings;
 }) => {
+  const metaTitle = 'Style Forge';
+  const metaDescription =
+    'Style Forge is a Figma-based tool that truly makes Figma the source of truth for a design system. Convert Figma files into JSON objects, ready to integrate with style systems such as styled-components or Emotion.';
+
   return (
     <>
+      <Head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>{metaTitle}</title>
+        <meta name='title' content={metaTitle} />
+        <meta name='apple-mobile-web-app-title' content={metaTitle} />
+        <meta name='application-name' content={metaTitle} />
+        <meta name='description' content={metaDescription} />
+        <meta name='theme-color' content='#3d2462' />
+        <meta name='msapplication-TileColor' content='#603cba' />
+        <link rel='icon' href='favicon/favicon.ico' sizes='any' />
+        <link rel='icon' href='favicon/favicon.svg' type='image/svg+xml' />
+        <link rel='apple-touch-icon' href='favicon/apple-touch-icon.png' />
+        <link rel='manifest' href='/site.webmanifest' />
+        <meta property='og:type' content='website' />
+        <meta
+          property='og:url'
+          content='https://github.com/monster-worldwide/style-forge'
+        />
+        <meta property='og:title' content={metaTitle} />
+        <meta property='og:site_name' content={metaTitle} />
+        <meta property='og:description' content={metaDescription} />
+        <meta property='og:image' content='images/og-social.jpg' />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:image:alt' content='Style Forge logo' />
+      </Head>
       <GlobalStyles />
       <UserDataProvider>
-        <Container>
+        <Main>
+          <h1
+            style={{
+              clip: 'rect(0 0 0 0)',
+              clipPath: 'inset(50%)',
+              height: '1px',
+              overflow: 'hidden',
+              position: 'absolute',
+              whiteSpace: 'nowrap',
+              width: '1px',
+            }}
+          >
+            Style Forge
+          </h1>
+
           <ForgePanel />
           <ForgeViewer environmentSettings={environmentSettings} />
-        </Container>
+        </Main>
       </UserDataProvider>
     </>
   );
