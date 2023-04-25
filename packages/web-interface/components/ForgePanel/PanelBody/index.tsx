@@ -8,6 +8,7 @@ import { loadRecentFileHeader } from '../../../utils/api/load-recent-file-header
 import { Error } from '../../Error';
 import { Icon } from '../../Icon';
 import { Loader } from '../../Loader';
+import { Section } from '../index';
 
 const PanelBodyWrapper = styled.div`
   overflow: auto;
@@ -26,22 +27,6 @@ const PanelEditView = styled.div<{ isLoading: boolean }>`
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
   user-select: ${({ isLoading }) => isLoading && 'none'};
   cursor: ${({ isLoading }) => isLoading && 'wait'};
-`;
-
-const Section = styled.div`
-  padding: 1rem;
-  border-bottom: 1px solid #6e46ae23;
-  display: grid;
-  gap: 0.5rem;
-  label,
-  h2,
-  textarea,
-  p {
-    font-size: 0.875rem;
-  }
-  button {
-    text-align: left;
-  }
 `;
 
 const PickList = styled.div`
@@ -155,6 +140,7 @@ export const PanelBody = ({
         <h2>Data type</h2>
         <select
           id='typeSelect'
+          aria-label='Select data type'
           onChange={(event) => setParserType(event.target.value as any)}
           style={{
             padding: '3px 8px',

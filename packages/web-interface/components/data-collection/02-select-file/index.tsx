@@ -17,6 +17,11 @@ const LoaderWrapper = styled.div`
   margin-top: 10vh;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 export const SelectFileStep = () => {
   const [userData, dataActions] = useContext(UserDataContext);
   const [fileUrl, setFile] = useState('');
@@ -40,6 +45,15 @@ export const SelectFileStep = () => {
     });
   };
 
+  const forgeSampleFile = () => {
+    setIsLoading(true);
+
+    loadFileHeader(
+      userData.figmaApiToken,
+      'https://www.figma.com/file/6bJzXzTDnsF49mwbNNSKpI/Style-Forge-Demo-File?node-id=0%3A1&t=0TideCUaNmRe4uNV-1',
+    ).then((result) => result && dataActions.selectFile(result));
+  };
+
   return (
     <PageWrapper>
       {isLoading ? (
@@ -57,7 +71,17 @@ export const SelectFileStep = () => {
             Please enter the share URL of the Figma file that you want to run
             through the forge.
           </p>
+
           <Form onSubmit={storeFileData}>
+            <Button
+              as='a'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
+              variant='tertiary'
+            >
+              How do I find the share URL for my Figma file?
+            </Button>
             <FormControl
               controlType='textarea'
               id='file'
@@ -69,24 +93,25 @@ export const SelectFileStep = () => {
                 setFile(event.target.value);
               }}
             />
+
             {error && <Error message={error} />}
-            <Button
-              type='submit'
-              variant='primary'
-              disabled={isLoading}
-              isLoading={isLoading}
-            >
-              {isLoading ? 'Loading...' : "I'm ready to Forge"}
-            </Button>
-            <Button
-              as='a'
-              target='_blank'
-              rel='noopener noreferrer'
-              href='https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes'
-              variant='tertiary'
-            >
-              How do I find the share URL for my Figma file?
-            </Button>
+            <ButtonGroup>
+              <Button
+                type='submit'
+                variant='primary'
+                disabled={isLoading}
+                isLoading={isLoading}
+              >
+                {isLoading ? 'Loading...' : "I'm ready to Forge"}
+              </Button>
+              <Button
+                type='button'
+                variant='tertiary'
+                onClick={forgeSampleFile}
+              >
+                Forge a Sample File
+              </Button>
+            </ButtonGroup>
           </Form>
         </>
       )}

@@ -38,7 +38,7 @@ const HelpText = styled.p`
   font-size: 14px;
   font-style: italic;
   margin-top: 0.5rem;
-  color: #737373;
+  color: #555555;
 `;
 
 export const FormControl = ({

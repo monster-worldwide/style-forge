@@ -72,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 `;
-const Container = styled.div`
+const Main = styled.main`
   height: 100vh;
   overflow: hidden;
   display: grid;
@@ -126,10 +126,24 @@ export const Layout = ({
       </Head>
       <GlobalStyles />
       <UserDataProvider>
-        <Container>
+        <Main>
+          <h1
+            style={{
+              clip: 'rect(0 0 0 0)',
+              clipPath: 'inset(50%)',
+              height: '1px',
+              overflow: 'hidden',
+              position: 'absolute',
+              whiteSpace: 'nowrap',
+              width: '1px',
+            }}
+          >
+            Style Forge
+          </h1>
+
           <ForgePanel />
           <ForgeViewer environmentSettings={environmentSettings} />
-        </Container>
+        </Main>
       </UserDataProvider>
     </>
   );

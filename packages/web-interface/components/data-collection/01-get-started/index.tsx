@@ -24,6 +24,15 @@ export const GetStartedStep = () => {
         To enter the Style Forge, we need your Figma Personal Access Token for
         authentication.
       </p>
+      <Button
+        target='_blank'
+        rel='noopener noreferrer'
+        as='a'
+        href='https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens'
+        variant='tertiary'
+      >
+        How do I generate a personal access token?
+      </Button>
 
       <Form onSubmit={storeToken}>
         <FormControl
@@ -38,15 +47,6 @@ export const GetStartedStep = () => {
 
         <Button type='submit' variant='primary'>
           Submit Token
-        </Button>
-        <Button
-          target='_blank'
-          rel='noopener noreferrer'
-          as='a'
-          href='https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens'
-          variant='tertiary'
-        >
-          How do I generate a personal access token?
         </Button>
       </Form>
     </PageWrapper>
