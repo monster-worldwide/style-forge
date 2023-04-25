@@ -16,6 +16,11 @@ Convert Figma files into JSON objects, ready to integrate with style systems suc
 - [Install](#install)
 - [Usage](#usage)
 
+### Check Out Style Forge
+
+- Link to Web Interface
+- Elevator pitch about how this is an example of what Style Forge does (and is not in fact Style Forge itself)
+
 ### Install
 
 To install Style Forge in your project with npm:
