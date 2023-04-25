@@ -38,7 +38,7 @@ const HelpText = styled.p`
   font-size: 14px;
   font-style: italic;
   margin-top: 0.5rem;
-  color: #737373;
+  color: #555555;
 `;
 
 export const FormControl = ({
@@ -49,6 +49,8 @@ export const FormControl = ({
   controlType = 'text',
   helpText,
   disabled,
+  autoComplete,
+  ...rest
 }: {
   id: string;
   label: string;
@@ -56,6 +58,7 @@ export const FormControl = ({
   controlType?: 'text' | 'textarea' | 'checkbox' | 'readOnly';
   helpText?: string;
   disabled?: boolean;
+  autoComplete?: string;
   onChange?: (event: any) => void;
 }) => {
   if (controlType === 'textarea') {
@@ -77,6 +80,7 @@ export const FormControl = ({
               e.currentTarget.dispatchEvent(event);
             }
           }}
+          {...rest}
         />
         {helpText && <HelpText>{helpText}</HelpText>}
       </div>
@@ -93,6 +97,8 @@ export const FormControl = ({
           value={value as string}
           onChange={onChange}
           disabled={disabled}
+          autoComplete={autoComplete}
+          {...rest}
         />
         {helpText && <HelpText>{helpText}</HelpText>}
       </div>
@@ -118,6 +124,7 @@ export const FormControl = ({
             checked={value as boolean}
             onChange={onChange}
             disabled={disabled}
+            {...rest}
           />
           {label}
         </CheckboxLabel>

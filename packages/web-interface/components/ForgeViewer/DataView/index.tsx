@@ -9,6 +9,7 @@ import { EnvironmentSettings } from '../../layout';
 import { loadMetadata } from '../../../utils/api/load-metadata';
 import { loadThemeSchema } from '../../../utils/api/load-theme-schema';
 import { Icon } from '../../Icon';
+import { Loader } from '../../Loader';
 
 type DataViewProps = {
   fileType: 'branch' | 'diff';
@@ -97,7 +98,7 @@ const NoDataView = styled.div`
   height: calc(100% - 7rem);
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.2);
   margin: 1rem;
   border: 2px dashed rgba(255, 255, 255, 0.051);
   border-radius: 4px;
@@ -167,8 +168,16 @@ export const DataView = ({ fileType, environmentSettings }: DataViewProps) => {
         }
       }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData, fileType]);
+
+  useEffect(() => {
+    setData(undefined);
+  }, [
+    userData.fileSelected?.selectedBranch?.name,
+    userData.fileSelected?.diffBranch?.name,
+  ]);
 
   const getDownloadPath = () => {
     const key =
@@ -206,7 +215,7 @@ export const DataView = ({ fileType, environmentSettings }: DataViewProps) => {
     }
     return (
       <NoDataView>
-        {userData.isParserRunning ? <p>Loading...</p> : <p>Ready to forge!</p>}
+        {userData.isParserRunning ? <Loader /> : <p>Ready to forge!</p>}
       </NoDataView>
     );
   };

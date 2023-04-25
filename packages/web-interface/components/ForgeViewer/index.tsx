@@ -11,7 +11,7 @@ const ViewerPanel = styled.div<{ isDiffed: boolean }>`
   height: 100%;
   overflow: hidden;
   gap: 1rem;
-  padding: 1rem 1rem 1rem 0;
+  padding: 1rem;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: ${({ isDiffed }) => (isDiffed ? '1fr 1fr' : '1fr')};

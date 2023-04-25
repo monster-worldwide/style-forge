@@ -9,6 +9,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log
 
+# next.js
+/.next/
+out/
+
 # editor
 .vscode
 
@@ -17,3 +21,4 @@ coverage
 
 dist
 .next
+.DS_Store
