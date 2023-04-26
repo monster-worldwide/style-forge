@@ -5,6 +5,8 @@ import { SelectFileStep } from '../data-collection/02-select-file';
 import { Button } from '../Button';
 import styled from 'styled-components';
 import { PanelBody } from './PanelBody';
+import { Logo } from '../Logo';
+import { Icon } from '../Icon';
 
 const StyledPanel = styled.div<{ hasUserProvidedFileData: Boolean }>`
   display: grid;
@@ -22,8 +24,28 @@ const PanelBranding = styled.div`
   padding: 1rem;
 `;
 
-const PanelFooter = styled.div`
+const PanelFooter = styled.div``;
+
+const FooterLinks = styled.div`
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1rem;
+`;
+
+export const Section = styled.div`
   padding: 1rem;
+  border-bottom: 1px solid #6e46ae23;
+  display: grid;
+  gap: 0.5rem;
+  label,
+  h2,
+  textarea,
+  p {
+    font-size: 0.875rem;
+  }
+  button {
+    text-align: left;
+  }
 `;
 
 export const ForgePanel = () => {
@@ -43,7 +65,7 @@ export const ForgePanel = () => {
       )}
     >
       <PanelBranding>
-        <h1>Style Forge</h1>
+        <Logo />
       </PanelBranding>
 
       {!userData.figmaApiToken && <GetStartedStep />}
@@ -52,48 +74,38 @@ export const ForgePanel = () => {
         <>
           <PanelBody panelView={panelView} setPanelView={setPanelView} />
           <PanelFooter>
-            <Button variant='tertiary' onClick={cleanLocalStorage}>
-              Reset my Figma personal access token
-            </Button>
+            <Section>
+              <Button variant='tertiary' onClick={cleanLocalStorage}>
+                Reset my Figma personal access token
+              </Button>
+            </Section>
+            <Section>
+              <FooterLinks>
+                <Button
+                  variant='tertiary'
+                  as='a'
+                  href='https://github.com/monster-worldwide/style-forge/blob/main/LICENSE'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  &copy; 2023 Monster Worldwide, Inc.
+                </Button>
+                <Button
+                  variant='tertiary'
+                  as='a'
+                  href='https://github.com/monster-worldwide/style-forge'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  title='View Style Forge on GitHub'
+                  aria-label='View Style Forge on GitHub'
+                >
+                  <Icon name='gitHub' styles={{ margin: '.25em' }} />
+                </Button>
+              </FooterLinks>
+            </Section>
           </PanelFooter>
         </>
       )}
     </StyledPanel>
   );
 };
-
-// <BackgroundImageWrapper>
-//   {/* eslint-disable-next-line @next/next/no-img-element */}
-//   <img src='/flames.svg' alt='flames' height={1755} width={1262} />
-// </BackgroundImageWrapper>
-
-// const BackgroundImageWrapper = styled.div`
-//   position: absolute;
-//   top: 0;
-//   background: #e9e7f7;
-//   background: white;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   overflow: hidden;
-//   display: grid;
-//   place-content: center;
-//   opacity: 1;
-//   z-index: -1;
-
-//   > * {
-//     transform: scale(5);
-//     opacity: 0.25;
-//     filter: blur(10px);
-//     animation: moveIt 60s ease-in-out infinite both alternate;
-//   }
-
-//   @keyframes moveIt {
-//     from {
-//       transform: scale(5) rotate(0);
-//     }
-//     to {
-//       transform: scale(6) rotate(400deg);
-//     }
-//   }
-// `;
