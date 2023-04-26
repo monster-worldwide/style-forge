@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./packages/web-interface/public/images/monster-logo.jpg" width="300">
+  <img src="./packages/web-interface/public/images/style-forge-logo.svg" width="300">
 </p>
 <p align="center">Build "design-first" design systems</p>
 
@@ -13,8 +13,14 @@ Convert Figma files into JSON objects, ready to integrate with style systems suc
 
 ## Table of Contents
 
-* [Install](#install)
-* [Usage](#usage)
+- [Install](#install)
+- [Usage](#usage)
+
+## Check Out Style Forge
+
+Coming soon...
+
+## Using Style Forge
 
 ### Install
 
@@ -47,3 +53,8 @@ The basic `getThemeData` call takes two props:
 - **figmaToken** - the [Figma Personal Access Token](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens) to use
 - **figmaFileKey** - the identifying key for the Figma file to parse. This can be found in the Figma file's URL.
 
+## Logo Credits
+
+[“noun-ball-plan-hammer”](https://thenounproject.com/icon/ball-plan-hammer-3463748/) by [Pascal Hess](https://thenounproject.com/hess_pascal/) / CC by [3.0](https://creativecommons.org/licenses/by/3.0/us/legalcode)
+
+[“noun-metalworking”](https://thenounproject.com/icon/metalworking-1561383/) by [Symbolon](https://thenounproject.com/symbolon/) / CC by [3.0](https://creativecommons.org/licenses/by/3.0/us/legalcode )
