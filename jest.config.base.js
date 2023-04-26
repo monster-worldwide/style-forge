@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/src', '<rootDir>/tests'],
+  roots: ['<rootDir>/src'],
   moduleFileExtensions: ['jsx', 'js', 'tsx', 'ts'],
   moduleNameMapper: {
     '^axios$': require.resolve('axios'),

@@ -9,7 +9,10 @@
   "source": "src/index.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=development BABEL_ENV=development rollup -c",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "test:lint": "eslint ../../",
+    "test:unit": "jest --env=jsdom",
+    "test:watch": "jest --env=jsdom --watch"
   },
   "dependencies": {
     "archiver": "^5.3.1",
