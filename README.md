@@ -18,7 +18,7 @@ Convert Figma files into JSON objects, ready to integrate with style systems suc
 
 ## Check Out Style Forge
 
-
+Coming soon...
 
 ## Using Style Forge
 
