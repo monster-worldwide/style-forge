@@ -215,7 +215,16 @@ export const DataView = ({ fileType, environmentSettings }: DataViewProps) => {
     }
     return (
       <NoDataView>
-        {userData.isParserRunning ? <Loader /> : <p>Ready to forge!</p>}
+        {userData.isParserRunning ? (
+          <Loader
+            firstMessage='Fetching branch data'
+            secondMessage='Parsing styles'
+            thirdMessage='Wow, you have a lot of styles'
+            timing={[0, 1, 5]}
+          />
+        ) : (
+          <p>Ready to forge!</p>
+        )}
       </NoDataView>
     );
   };

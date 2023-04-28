@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const animationTimeline = 1000;
@@ -9,6 +10,9 @@ const LoaderWrapper = styled.div`
   animation-fill-mode: forwards;
   transform: scale(0);
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @keyframes loader {
     to {
@@ -89,7 +93,75 @@ const Sparks = styled.g`
   }
 `;
 
-export const Loader = () => {
+const LoadingText = styled.div`
+  text-align: center;
+  padding: 1rem;
+
+  p {
+    animation: var(--animation-drift-in--short);
+
+    ::after {
+      content: '...';
+      animation: dots 1250ms infinite;
+      width: 1em;
+      display: inline-block;
+      text-align: left;
+      margin-left: 0.1em;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes dots {
+    0% {
+      content: '';
+    }
+    15% {
+      content: '.';
+    }
+    30% {
+      content: '..';
+    }
+    45% {
+      content: '...';
+    }
+    100% {
+      content: '...';
+    }
+  }
+`;
+
+type firstMessageDuration = number;
+type secondMessageDuration = number;
+type thirdMessageDuration = number;
+
+export const Loader = ({
+  firstMessage = 'Loading',
+  secondMessage = 'Getting there',
+  thirdMessage = 'Almost done',
+  timing = [0, 5, 10],
+}: {
+  firstMessage?: string;
+  secondMessage?: string;
+  thirdMessage?: string;
+  timing?: [firstMessageDuration, secondMessageDuration, thirdMessageDuration];
+}) => {
+  const [waitTime, setWaitTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWaitTime(waitTime + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [waitTime]);
+
+  const firstPhase = waitTime >= timing[0] && waitTime <= timing[1];
+  const secondPhase = waitTime > timing[1] && waitTime <= timing[2];
+  const thirdPhase = waitTime > timing[2];
+
   return (
     <LoaderWrapper>
       <svg
@@ -138,6 +210,11 @@ export const Loader = () => {
           fill='#6E46AE'
         />
       </svg>
+      <LoadingText>
+        {firstPhase && <p>{firstMessage}</p>}
+        {secondPhase && <p>{secondMessage}</p>}
+        {thirdPhase && <p>{thirdMessage}</p>}
+      </LoadingText>
     </LoaderWrapper>
   );
 };

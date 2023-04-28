@@ -58,7 +58,11 @@ export const SelectFileStep = () => {
     <PageWrapper>
       {!error && isLoading ? (
         <LoaderWrapper>
-          <Loader />
+          <Loader
+            firstMessage='Authenticating with Figma'
+            secondMessage='Fetching your file data'
+            thirdMessage='Almost done'
+          />
         </LoaderWrapper>
       ) : (
         <>
