@@ -56,7 +56,7 @@ export const SelectFileStep = () => {
 
   return (
     <PageWrapper>
-      {isLoading ? (
+      {!error && isLoading ? (
         <LoaderWrapper>
           <Loader />
         </LoaderWrapper>
