@@ -38,6 +38,7 @@ export const SelectFileStep = () => {
       if (result) {
         dataActions.selectFile(result);
       } else {
+        setIsLoading(false);
         setError(
           'Whoops! Your URL might have a typo, or your Personal Access Token may be invalid. Please try again.',
         );
@@ -58,7 +59,11 @@ export const SelectFileStep = () => {
     <PageWrapper>
       {isLoading ? (
         <LoaderWrapper>
-          <Loader />
+          <Loader
+            firstMessage='Authenticating with Figma'
+            secondMessage='Fetching your file data'
+            thirdMessage='Almost done'
+          />
         </LoaderWrapper>
       ) : (
         <>
