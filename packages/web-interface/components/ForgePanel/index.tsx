@@ -22,6 +22,7 @@ const StyledPanel = styled.div<{ hasUserProvidedFileData: Boolean }>`
 
 const PanelBranding = styled.div`
   padding: 1rem;
+  max-width: 220px;
 `;
 
 const PanelFooter = styled.div``;
