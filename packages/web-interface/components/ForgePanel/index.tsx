@@ -29,7 +29,7 @@ const PanelFooter = styled.div``;
 
 const FooterLinks = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   padding-bottom: 1rem;
 `;
 
@@ -81,16 +81,16 @@ export const ForgePanel = () => {
               </Button>
             </Section>
             <Section>
+              <Button
+                variant='tertiary'
+                as='a'
+                href='https://github.com/monster-worldwide/style-forge/blob/main/LICENSE'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                &copy; 2023 Monster Worldwide, Inc.
+              </Button>
               <FooterLinks>
-                <Button
-                  variant='tertiary'
-                  as='a'
-                  href='https://github.com/monster-worldwide/style-forge/blob/main/LICENSE'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  &copy; 2023 Monster Worldwide, Inc.
-                </Button>
                 <Button
                   variant='tertiary'
                   as='a'
@@ -101,6 +101,17 @@ export const ForgePanel = () => {
                   aria-label='View Style Forge on GitHub'
                 >
                   <Icon name='gitHub' styles={{ margin: '.25em' }} />
+                </Button>
+                <Button
+                  variant='tertiary'
+                  as='a'
+                  href='https://github.com/monster-worldwide/style-forge/tree/main/packages/web-interface'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='View Style Forge on GitHub'
+                  title='Need help?'
+                >
+                  <Icon name='help' styles={{ margin: '.25em' }} />
                 </Button>
               </FooterLinks>
             </Section>
