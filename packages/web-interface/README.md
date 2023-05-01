@@ -12,7 +12,7 @@ All three of these will be parsed by Style Forge into a theme object.
 
 ## Web Interface Tutorial
 
-You can access the web interface either by cloning the repository and running it locally, or by accessing our hosted version at <URL HERE>.
+You can access the web interface either by cloning the repository and running it locally, or by accessing our hosted version at http://style-forge.monster.com.
 
 ### Running Locally
 
