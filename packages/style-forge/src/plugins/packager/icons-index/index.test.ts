@@ -1,69 +1,121 @@
 import { iconData } from '../../../utils';
 import { iconsIndexPackagerPlugin } from '.';
+import * as os from 'os';
 
 const expectedResult = [
   {
     path: 'dist/index.js',
     content:
-      "Object.defineProperty(module.exports, '__esModule', { value: true, configurable: true });\r\n" +
-      "Object.defineProperty(module.exports, 'default', { get: () => switchFunction, enumerable: true, configurable: true });\r\n" +
-      '\r\n' +
-      "Object.defineProperty(module.exports, 'IconTest1', { get: () => IconTest1, enumerable: true, configurable: true });\r\n" +
-      "Object.defineProperty(module.exports, 'IconTest2', { get: () => IconTest2, enumerable: true, configurable: true });\r\n" +
-      "Object.defineProperty(module.exports, 'IconTest3', { get: () => IconTest3, enumerable: true, configurable: true });\r\n" +
-      "const React = require('react');\r\n" +
-      "const { IconTest1 } = require('./icons-cjs/icon-test-1');\r\n" +
-      "const { IconTest2 } = require('./icons-cjs/icon-test-2');\r\n" +
-      "const { IconTest3 } = require('./icons-cjs/icon-test-3');\r\n" +
-      '\r\n' +
-      'const switchFunction = function (name) {\r\n' +
-      '  switch (name) {\r\n' +
-      "    case 'test_1':\r\n" +
-      '      return IconTest1;\r\n' +
-      "    case 'test_2':\r\n" +
-      '      return IconTest2;\r\n' +
-      "    case 'test_3':\r\n" +
-      '      return IconTest3;\r\n' +
-      '    default:\r\n' +
-      '      return React.Fragment;\r\n' +
-      '  }\r\n' +
-      '}\r\n',
+      "Object.defineProperty(module.exports, '__esModule', { value: true, configurable: true });" +
+      os.EOL +
+      "Object.defineProperty(module.exports, 'default', { get: () => switchFunction, enumerable: true, configurable: true });" +
+      os.EOL +
+      '' +
+      os.EOL +
+      "Object.defineProperty(module.exports, 'IconTest1', { get: () => IconTest1, enumerable: true, configurable: true });" +
+      os.EOL +
+      "Object.defineProperty(module.exports, 'IconTest2', { get: () => IconTest2, enumerable: true, configurable: true });" +
+      os.EOL +
+      "Object.defineProperty(module.exports, 'IconTest3', { get: () => IconTest3, enumerable: true, configurable: true });" +
+      os.EOL +
+      "const React = require('react');" +
+      os.EOL +
+      "const { IconTest1 } = require('./icons-cjs/icon-test-1');" +
+      os.EOL +
+      "const { IconTest2 } = require('./icons-cjs/icon-test-2');" +
+      os.EOL +
+      "const { IconTest3 } = require('./icons-cjs/icon-test-3');" +
+      os.EOL +
+      '' +
+      os.EOL +
+      'const switchFunction = function (name) {' +
+      os.EOL +
+      '  switch (name) {' +
+      os.EOL +
+      "    case 'test_1':" +
+      os.EOL +
+      '      return IconTest1;' +
+      os.EOL +
+      "    case 'test_2':" +
+      os.EOL +
+      '      return IconTest2;' +
+      os.EOL +
+      "    case 'test_3':" +
+      os.EOL +
+      '      return IconTest3;' +
+      os.EOL +
+      '    default:' +
+      os.EOL +
+      '      return React.Fragment;' +
+      os.EOL +
+      '  }' +
+      os.EOL +
+      '}' +
+      os.EOL,
   },
   {
     path: 'dist/index.modern.js',
     content:
-      "import React from 'react';\r\n" +
-      "import { IconTest1 } from './icons-module/icon-test-1';\r\n" +
-      "import { IconTest2 } from './icons-module/icon-test-2';\r\n" +
-      "import { IconTest3 } from './icons-module/icon-test-3';\r\n" +
-      '\r\n' +
-      'export { IconTest1, IconTest2, IconTest3};\r\n' +
-      '\r\n' +
-      'export default function (name) {\r\n' +
-      '  switch (name) {\r\n' +
-      "    case 'test_1':\r\n" +
-      '      return IconTest1;\r\n' +
-      "    case 'test_2':\r\n" +
-      '      return IconTest2;\r\n' +
-      "    case 'test_3':\r\n" +
-      '      return IconTest3;\r\n' +
-      '    default:\r\n' +
-      '      return React.Fragment;\r\n' +
-      '  }\r\n' +
-      '}\r\n',
+      "import React from 'react';" +
+      os.EOL +
+      "import { IconTest1 } from './icons-module/icon-test-1';" +
+      os.EOL +
+      "import { IconTest2 } from './icons-module/icon-test-2';" +
+      os.EOL +
+      "import { IconTest3 } from './icons-module/icon-test-3';" +
+      os.EOL +
+      '' +
+      os.EOL +
+      'export { IconTest1, IconTest2, IconTest3};' +
+      os.EOL +
+      '' +
+      os.EOL +
+      'export default function (name) {' +
+      os.EOL +
+      '  switch (name) {' +
+      os.EOL +
+      "    case 'test_1':" +
+      os.EOL +
+      '      return IconTest1;' +
+      os.EOL +
+      "    case 'test_2':" +
+      os.EOL +
+      '      return IconTest2;' +
+      os.EOL +
+      "    case 'test_3':" +
+      os.EOL +
+      '      return IconTest3;' +
+      os.EOL +
+      '    default:' +
+      os.EOL +
+      '      return React.Fragment;' +
+      os.EOL +
+      '  }' +
+      os.EOL +
+      '}' +
+      os.EOL,
   },
   {
     path: 'dist/index.d.ts',
     content:
-      '/// <reference types="react" />\r\n' +
-      "import { FC, SVGAttributes } from 'react';\r\n" +
-      '\r\n' +
-      'export type Icon = FC<SVGAttributes<SVGElement>>;\r\n' +
-      'export const IconTest1: Icon;\r\n' +
-      'export const IconTest2: Icon;\r\n' +
-      'export const IconTest3: Icon;\r\n' +
-      '\r\n' +
-      'export default function getIcon(name: string): Icon;\r\n',
+      '/// <reference types="react" />' +
+      os.EOL +
+      "import { FC, SVGAttributes } from 'react';" +
+      os.EOL +
+      '' +
+      os.EOL +
+      'export type Icon = FC<SVGAttributes<SVGElement>>;' +
+      os.EOL +
+      'export const IconTest1: Icon;' +
+      os.EOL +
+      'export const IconTest2: Icon;' +
+      os.EOL +
+      'export const IconTest3: Icon;' +
+      os.EOL +
+      '' +
+      os.EOL +
+      'export default function getIcon(name: string): Icon;' +
+      os.EOL,
   },
 ];
 
