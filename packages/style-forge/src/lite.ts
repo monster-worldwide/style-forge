@@ -9,5 +9,3 @@ export const StyleForgeLite = {
   getThemeData,
   getThemeSchema,
 };
-
-export const Test = 'test';
