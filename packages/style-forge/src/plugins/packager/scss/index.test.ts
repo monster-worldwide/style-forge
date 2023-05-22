@@ -1,11 +1,15 @@
 import { themeData } from '../../../utils';
 import { scssPackagerPlugin } from '.';
+import * as os from 'os';
 
 const expectedResult = [
   {
     path: 'theme/tokens.scss',
-    content:
-      '"$functional-color: #00a5ff;\\r\\n$functional-shades: rgba(242, 177, 39, 0.2);\\r\\n$functional-tint: #f2b127;\\r\\n$grid24px: 24px;\\r\\n$spacing-vertical-xxl: undefined;\\r\\n$spacing-horizontal-md: 16px;\\r\\n$link-md-semibold-font-family: Proxima Nova, Helvetica, Arial, sans-serif;\\r\\n$paragraph-sm-font-weight: 400;\\r\\n$heading-marketing-lg-font-size: 32px;"',
+    content: JSON.stringify(
+      `$functional-color: #00a5ff;${os.EOL}$functional-shades: rgba(242, 177, 39, 0.2);${os.EOL}$functional-tint: #f2b127;${os.EOL}$grid24px: 24px;${os.EOL}$spacing-vertical-xxl: undefined;${os.EOL}$spacing-horizontal-md: 16px;${os.EOL}$link-md-semibold-font-family: Proxima Nova, Helvetica, Arial, sans-serif;${os.EOL}$paragraph-sm-font-weight: 400;${os.EOL}$heading-marketing-lg-font-size: 32px;`,
+      null,
+      2,
+    ),
   },
 ];
 
