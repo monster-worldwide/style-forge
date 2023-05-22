@@ -8,7 +8,7 @@ export default [
   {
     input: 'src/index.ts',
     inlineDynamicImports: true,
-    external: [...Object.keys(pkg.peerDependencies), 'archiver'],
+    external: ['archiver'],
     output: [
       {
         file: pkg.main,
@@ -33,7 +33,6 @@ export default [
   {
     input: 'src/lite.ts',
     inlineDynamicImports: true,
-    external: [...Object.keys(pkg.peerDependencies)],
     output: [
       {
         file: 'dist/lite.js',
