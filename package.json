@@ -1,5 +1,5 @@
 {
-  "name": "@monsterww/figma-toolbox",
+  "name": "@monsterww/style-forge-monorepo",
   "private": true,
   "license": "Apache-2.0",
   "workspaces": {
