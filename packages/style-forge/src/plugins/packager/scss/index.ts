@@ -8,7 +8,7 @@ export const scssPackagerPlugin = () => {
       return [
         {
           path: 'theme/tokens.scss',
-          content: JSON.stringify(createScssObject(data), null, 2),
+          content: createScssObject(data),
         },
       ];
     },
