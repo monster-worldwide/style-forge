@@ -15,7 +15,7 @@
     "clean": "rimraf ./.next & rimraf ./out"
   },
   "dependencies": {
-    "@monsterww/style-forge": "^1.0.0",
+    "@monsterww/style-forge": "^0.0.7",
     "axios": "^0.21.1",
     "archiver": "^5.3.1",
     "bootstrap": "^5.2.3",

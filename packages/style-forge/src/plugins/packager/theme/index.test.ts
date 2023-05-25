@@ -1,10 +1,15 @@
 import { themeData } from '../../../utils';
 import { themePackagerPlugin } from '.';
+import * as os from 'os';
 
 const expectedResult = [
   {
     path: 'theme/theme.ts',
-    content: `"export const theme = {\\r\\n  button: {\\r\\n    sm: {\\r\\n      primary: {\\r\\n        anotherContent: {},\\r\\n        content: 'test',\\r\\n        'different-key': 'testX',\\r\\n        differentValue: 10,\\r\\n      },\\r\\n    },\\r\\n  },\\r\\n  color: {\\r\\n    $functionalInfo20: {\\r\\n      width: '48px',\\r\\n      height: '48px',\\r\\n      backgroundColor: 'rgba(0, 165, 255, 0.2)',\\r\\n    },\\r\\n    $functionalColor: {\\r\\n      color: '#00a5ff',\\r\\n    },\\r\\n    $functionalShades: {\\r\\n      backgroundColor: 'rgba(242, 177, 39, 0.2)',\\r\\n    },\\r\\n    $functionalTint: {\\r\\n      backgroundColor: '#f2b127',\\r\\n    },\\r\\n  },\\r\\n  tokens: {\\r\\n    $grid24px: {\\r\\n      width: '24px',\\r\\n    },\\r\\n    $spacingVerticalXxl: {\\r\\n      height: '40px',\\r\\n    },\\r\\n    $spacingHorizontalMd: {\\r\\n      width: '16px',\\r\\n    },\\r\\n    $linkMdSemibold: {\\r\\n      fontFamily: 'Proxima Nova, Helvetica, Arial, sans-serif',\\r\\n    },\\r\\n    $paragraphSm: {\\r\\n      fontWeight: 400,\\r\\n    },\\r\\n    $headingMarketingLg: {\\r\\n      fontSize: '32px',\\r\\n    },\\r\\n    $fieldLabelSmBold: {\\r\\n      fontFamily: 'Proxima Nova, Helvetica, Arial, sans-serif',\\r\\n      fontWeight: 700,\\r\\n      fontSize: '14px',\\r\\n      color: '#212121',\\r\\n      lineHeight: '18px',\\r\\n    },\\r\\n  },\\r\\n  weirdComponent: 'testY',\\r\\n};\\r\\n"`,
+    content: JSON.stringify(
+      `export const theme = {${os.EOL}  button: {${os.EOL}    sm: {${os.EOL}      primary: {${os.EOL}        anotherContent: {},${os.EOL}        content: 'test',${os.EOL}        'different-key': 'testX',${os.EOL}        differentValue: 10,${os.EOL}      },${os.EOL}    },${os.EOL}  },${os.EOL}  color: {${os.EOL}    $functionalInfo20: {${os.EOL}      width: '48px',${os.EOL}      height: '48px',${os.EOL}      backgroundColor: 'rgba(0, 165, 255, 0.2)',${os.EOL}    },${os.EOL}    $functionalColor: {${os.EOL}      color: '#00a5ff',${os.EOL}    },${os.EOL}    $functionalShades: {${os.EOL}      backgroundColor: 'rgba(242, 177, 39, 0.2)',${os.EOL}    },${os.EOL}    $functionalTint: {${os.EOL}      backgroundColor: '#f2b127',${os.EOL}    },${os.EOL}  },${os.EOL}  tokens: {${os.EOL}    $grid24px: {${os.EOL}      width: '24px',${os.EOL}    },${os.EOL}    $spacingVerticalXxl: {${os.EOL}      height: '40px',${os.EOL}    },${os.EOL}    $spacingHorizontalMd: {${os.EOL}      width: '16px',${os.EOL}    },${os.EOL}    $linkMdSemibold: {${os.EOL}      fontFamily: 'Proxima Nova, Helvetica, Arial, sans-serif',${os.EOL}    },${os.EOL}    $paragraphSm: {${os.EOL}      fontWeight: 400,${os.EOL}    },${os.EOL}    $headingMarketingLg: {${os.EOL}      fontSize: '32px',${os.EOL}    },${os.EOL}    $fieldLabelSmBold: {${os.EOL}      fontFamily: 'Proxima Nova, Helvetica, Arial, sans-serif',${os.EOL}      fontWeight: 700,${os.EOL}      fontSize: '14px',${os.EOL}      color: '#212121',${os.EOL}      lineHeight: '18px',${os.EOL}    },${os.EOL}  },${os.EOL}  weirdComponent: 'testY',${os.EOL}};${os.EOL}`,
+      null,
+      2,
+    ),
   },
   {
     path: 'dist/theme.ts',
