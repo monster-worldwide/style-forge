@@ -8,11 +8,11 @@ export const themePackagerPlugin = () => {
       return [
         {
           path: 'theme/theme.ts',
-          content: JSON.stringify(createTsObject(data, false), null, 2),
+          content: createTsObject(data, false),
         },
         {
           path: 'dist/theme.ts',
-          content: JSON.stringify(createTsObject(data, true), null, 2),
+          content: createTsObject(data, true),
         },
       ];
     },
