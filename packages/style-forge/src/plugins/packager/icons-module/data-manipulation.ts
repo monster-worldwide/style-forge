@@ -1,5 +1,5 @@
 import { DOMParser } from 'xmldom';
-import { indentedLine, getDistinctFills } from '../../../utils';
+import { indentedLine, getDistinctFills, getCamelCase } from '../../../utils';
 import { FileDescription, IconDefinition, IconObject } from '../../../types';
 
 export const createIconsModule = (data: IconObject) => {
@@ -95,7 +95,7 @@ const generateChildren = (
           const attrValue = childAttr.value;
           if (!(attrName === 'fill' && ignoreFills)) {
             content += indentedLine(
-              `'${attrName}': '${attrValue}',`,
+              `'${getCamelCase(attrName)}': '${attrValue}',`,
               indent + 1,
             );
           }
