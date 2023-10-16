@@ -78,7 +78,7 @@ const expectedResult = [
       os.EOL +
       "    /* #__PURE__ */ React.createElement('g', {" +
       os.EOL +
-      "      'clip-path': 'url(#clip0_8102_4924)'," +
+      "      'clipPath': 'url(#clip0_8102_4924)'," +
       os.EOL +
       '    },' +
       os.EOL +
