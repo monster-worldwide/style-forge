@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "archiver": "^5.3.1",
+    "axios": "^0.21.1",
     "figma-api": "^1.11.0",
     "lodash": "^4.17.21",
     "xmldom": "^0.6.0"
