@@ -62,22 +62,24 @@ jest.mock('archiver', () => () => {
   };
 });
 
-global.fetch = jest.fn((path: string) => {
-  const split = path.split(':');
-  if (split[1] === 'axioserror') {
-    return Promise.reject(new Error('axios mock error'));
-  }
-  if (split[1] === 'runtimeerror') {
-    throw Error('runtime mock error');
-  }
-  if (split[1] === 'errorliteral') {
-    // eslint-disable-next-line no-throw-literal
-    throw 'literal error';
-  }
-  return Promise.resolve({
-    text: () => Promise.resolve(`<svg id="${split[1]}"></svg>`),
-  });
-});
+jest.mock('axios', () => ({
+  get: (path: string) => {
+    const split = path.split(':');
+    if (split[1] === 'axioserror') {
+      return Promise.reject(new Error('axios mock error'));
+    }
+    if (split[1] === 'runtimeerror') {
+      throw Error('runtime mock error');
+    }
+    if (split[1] === 'errorliteral') {
+      // eslint-disable-next-line no-throw-literal
+      throw 'literal error';
+    }
+    return Promise.resolve({
+      data: `<svg id="${split[1]}"></svg>`,
+    });
+  },
+}));
 
 describe('Test api contract', () => {
   beforeEach(() => {

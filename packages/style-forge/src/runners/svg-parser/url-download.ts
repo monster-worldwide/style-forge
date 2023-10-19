@@ -1,5 +1,6 @@
 import { Api, IconObject } from '../../types';
 import { BATCH_SIZE } from './const';
+import axios from 'axios';
 
 /**
  *
@@ -54,8 +55,9 @@ export const getSvgContent = async (iconData: IconObject) => {
       )) {
         const { downloadUrl } = iconData[iconKey];
         promises.push(
-          fetch(downloadUrl)
-            .then((result) => result.text())
+          axios
+            .get(downloadUrl)
+            .then((result) => result.data)
             .then((result) => (iconData[iconKey].data = result))
             .catch((error) =>
               console.log(
