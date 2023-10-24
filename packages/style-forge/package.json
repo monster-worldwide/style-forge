@@ -1,7 +1,7 @@
 {
   "name": "@monsterww/style-forge",
   "license": "Apache-2.0",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Style Forge - a tool for generating style data from Figma files",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
