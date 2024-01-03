@@ -1,6 +1,7 @@
 import {
   getMetaData,
   createIconPackage,
+  createIconSourceCode,
   createThemePackage,
   getIconData,
   getThemeData,
@@ -11,6 +12,7 @@ export { StyleForgePlugins } from './plugins';
 export const StyleForge = {
   getMetaData,
   createIconPackage,
+  createIconSourceCode,
   createThemePackage,
   getIconData,
   getThemeData,
