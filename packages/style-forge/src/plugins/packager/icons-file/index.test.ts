@@ -19,8 +19,6 @@ const expectedResult = [
       '  </svg>' +
       os.EOL +
       '};' +
-      os.EOL +
-      "IconTest1.displayName = 'IconTest1';" +
       os.EOL,
   },
   {
@@ -59,8 +57,6 @@ const expectedResult = [
       '  </svg>' +
       os.EOL +
       '};' +
-      os.EOL +
-      "IconTest2.displayName = 'IconTest2';" +
       os.EOL,
   },
 ];

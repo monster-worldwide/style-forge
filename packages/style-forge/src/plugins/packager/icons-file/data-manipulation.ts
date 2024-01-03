@@ -27,9 +27,6 @@ const createIconFile = (icon: IconDefinition) => {
   let content = generateImports();
   content += indentedLine('');
   content += generateIconComponent(icon);
-  content += indentedLine(
-    `${icon.componentName}.displayName = '${icon.componentName}';`,
-  );
   return content;
 };
 

@@ -8,7 +8,7 @@ export const iconsFileIndexPackagerPlugin = () => {
     runFileCreation: (data: IconObject) => {
       return [
         { path: 'src/index.js', content: createModuleIndex(data) },
-        { path: 'src/index.d.ts', content: createTypedef(data) },
+        { path: 'dist/index.d.ts', content: createTypedef(data) },
       ];
     },
   } as PackagerPlugin;

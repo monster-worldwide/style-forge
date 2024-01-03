@@ -14,7 +14,7 @@ const expectedResult = [
       os.EOL,
   },
   {
-    path: 'src/index.d.ts',
+    path: 'dist/index.d.ts',
     content:
       '/// <reference types="react" />' +
       os.EOL +
