@@ -1,6 +1,6 @@
-# Icons Index Packager Plugin
+# Icons File Index Packager Plugin
 
-Is one of [Packager Plugins](../). This plugin will create file definitions for index files and type definitions.
+Is one of [Packager Plugins](../). This plugin will create file definitions for index files and type definitions for [Icons File Packager Plugin](../icons-file/).
 
 ## Workflow
 
@@ -24,40 +24,9 @@ This plugin will get [IconObject](../../dev-dependencies/types) as a parameter a
 =>
 
 {
-    path: 'dist/index.js',
+    path: 'src/index.js',
     content:
-      "Object.defineProperty(module.exports, '__esModule', { value: true, configurable: true });\r\n" +
-      "Object.defineProperty(module.exports, 'default', { get: () => switchFunction, enumerable: true, configurable: true });\r\n" +
-      '\r\n' +
-      "Object.defineProperty(module.exports, 'IconTest1', { get: () => IconTest1, enumerable: true, configurable: true });\r\n" +
-      "const React = require('react');\r\n" +
-      "const { IconTest1 } = require('./icons-cjs/icon-test-1');\r\n" +
-      '\r\n' +
-      'const switchFunction = function (name) {\r\n' +
-      '  switch (name) {\r\n' +
-      "    case 'test_1':\r\n" +
-      '      return IconTest1;\r\n' +
-      '    default:\r\n' +
-      '      return React.Fragment;\r\n' +
-      '  }\r\n' +
-      '}\r\n',
-  },
-  {
-    path: 'dist/index.modern.js',
-    content:
-      "import React from 'react';\r\n" +
-      "import { IconTest1 } from './icons-module/icon-test-1';\r\n" +
-      '\r\n' +
-      'export { IconTest1 };\r\n' +
-      '\r\n' +
-      'export default function (name) {\r\n' +
-      '  switch (name) {\r\n' +
-      "    case 'test_1':\r\n" +
-      '      return IconTest1;\r\n' +
-      '    default:\r\n' +
-      '      return React.Fragment;\r\n' +
-      '  }\r\n' +
-      '}\r\n',
+      "export { IconTest1 } from './icons/icon-test-1';"
   },
   {
     path: 'dist/index.d.ts',
