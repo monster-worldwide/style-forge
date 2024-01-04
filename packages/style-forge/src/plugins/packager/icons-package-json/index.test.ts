@@ -8,8 +8,8 @@ const iconsPackageJson = [
       {
         name: 'test-package',
         version: '0.1.0',
+        type: 'module',
         main: 'dist/index.js',
-        module: 'dist/index.modern.js',
         typings: 'dist/index.d.ts',
         sideEffects: false,
         peerDependencies: {
