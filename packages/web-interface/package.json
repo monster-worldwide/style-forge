@@ -1,6 +1,6 @@
 {
   "name": "@monsterww/web-interface",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "private": true,
   "description": "Web interface for Figma Toolbox",
   "author": "",
@@ -15,7 +15,7 @@
     "clean": "rimraf ./.next & rimraf ./out"
   },
   "dependencies": {
-    "@monsterww/style-forge": "^0.0.12",
+    "@monsterww/style-forge": "^0.1.0",
     "archiver": "^5.3.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.2.3",
